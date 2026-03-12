@@ -4,12 +4,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh './mvnw clean package'
+                bat './mvnw clean package'
             }
         }
         stage('Run') {
             steps {
-                sh './mvnw spring-boot:run'
+                bat './mvnw spring-boot:run'
             }
         }
     }    
