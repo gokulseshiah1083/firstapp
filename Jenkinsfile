@@ -1,15 +1,20 @@
 pipeline {
     agent any
-
+    environment {
+        // This is a common variable name for many applications like Spring Boot
+        SERVER_PORT = '8082' 
+    }
     stages {
         stage('Build') {
             steps {
-                sh './mvnw clean package'
+                bat 'echo "Starting the maven clean package"'
+                bat './mvnw clean package'
             }
         }
         stage('Run') {
             steps {
-                sh './mvnw spring-boot:run'
+                bat 'echo "Starting the spring boot app"'
+                bat './mvnw spring-boot:run'
             }
         }
     }    
